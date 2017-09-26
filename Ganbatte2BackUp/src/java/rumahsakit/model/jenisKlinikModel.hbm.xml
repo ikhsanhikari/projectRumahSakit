@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="rumahsakit.model.JenisKlinikModel" table="jenis_klinik">
+        <id name="id_jenis_klinik" column="Id_Jenis_Kelinik">
+            <generator class="native"/>
+        </id>
+        <property name="nama_klinik" column="nama_klinik"/>
+        <property name="biaya" column="biaya"/>
+    </class>
+  
+
+</hibernate-mapping>

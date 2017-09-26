@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_rumahsakit1?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping resource="rumahsakit/model/pasienModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/jenisKlinik.hbm.xml"/>
+    <mapping resource="rumahsakit/model/obatModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/obatKeluarModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/biayaModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/ruanganModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/nomorRuanganModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/KlinikModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/userModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/rawatInapModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/obatMasukModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/keluhanModel.hbm.xml"/>
+    <mapping resource="rumahsakit/model/tindakanModel.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

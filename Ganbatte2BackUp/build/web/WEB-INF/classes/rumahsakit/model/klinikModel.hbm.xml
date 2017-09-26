@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="rumahsakit.model.KlinikModel" table="klinik">
+        <id name="id_klinik" column="id_klinik">
+            <generator class="native"/>
+        </id>
+        <property name="id_pasien" column="id_pasien"/>
+        <property name="keluhan" column="keluhan"/>
+        <property name="jenis_klinik" column="jenis_klinik"/>
+        <property name="penyakit" column="penyakit"/>
+        <property name="tindakan" column="tindakan"/>
+        <property name="catatan_medis_klinik" column="catatan_medis_klinik"/>
+        <property name="biaya" column="biaya"/>
+        <property name="keterangan" column="keteranganKlinik"/>
+        <property name="proses_perawatan" column="proses_perawatan"/>
+    </class>
+  
+
+</hibernate-mapping>

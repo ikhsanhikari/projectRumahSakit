@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd        
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">            
+
+    <context:component-scan base-package="rumahsakit.services"/>
+    <context:component-scan base-package="rumahsakit.dao"/>
+   
+    
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id = "sessionFactory" class = "org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="mappingResources">  
+            <list>                                
+                <value>rumahsakit/model/pasienModel.hbm.xml</value>
+                <value>rumahsakit/model/jenisKlinikModel.hbm.xml</value>
+                <value>rumahsakit/model/obatModel.hbm.xml</value>
+                <value>rumahsakit/model/obatKeluarModel.hbm.xml</value>
+                <value>rumahsakit/model/biayaModel.hbm.xml</value>
+                <value>rumahsakit/model/ruanganModel.hbm.xml</value>
+                <value>rumahsakit/model/nomorRuanganModel.hbm.xml</value>
+                <value>rumahsakit/model/klinikModel.hbm.xml</value>
+                <value>rumahsakit/model/userModel.hbm.xml</value>
+                <value>rumahsakit/model/rawatInapModel.hbm.xml</value>
+                <value>rumahsakit/model/obatMasukModel.hbm.xml</value>
+                <value>rumahsakit/model/keluhanModel.hbm.xml</value>
+                <value>rumahsakit/model/tindakanModel.hbm.xml</value>
+            </list>  
+        </property>  
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">true</prop>                    
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+   
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"          
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}" />
+        
+    <bean id="pasienDao" class="rumahsakit.dao.impl.PasienDaoImpl"/>
+    <bean id="pasienServices" class="rumahsakit.services.impl.PasienServicesImpl"/>
+    
+    <bean id="jenisKlinikDao" class="rumahsakit.dao.impl.RuanganDaoImpl"/>
+    <bean id="jenisKlinikServices" class="rumahsakit.services.impl.RuanganServicesImpl"/>
+    
+    <bean id="ruanganDao" class="rumahsakit.dao.impl.RuanganDaoImpl"/>
+    <bean id="ruanganServices" class="rumahsakit.services.impl.RuanganServicesImpl"/>
+          
+    <bean id="klinikDao" class="rumahsakit.dao.impl.KlinikDaoImpl"/>
+    <bean id="klinikServices" class="rumahsakit.services.impl.KlinikServicesImpl"/>
+    
+    <bean id="obatDao" class="rumahsakit.dao.impl.ObatDaoImpl"/>
+    <bean id="obatServices" class="rumahsakit.services.impl.ObatServicesImpl"/>
+    
+    <bean id="obatKeluarDao" class="rumahsakit.dao.impl.ObatKeluarDaoImpl"/>
+    <bean id="obatKeluarServices" class="rumahsakit.services.impl.ObatKeluarServicesImpl"/>
+    
+    <bean id="biayaDao" class="rumahsakit.dao.impl.BiayaDaoImpl"/>
+    <bean id="biayaServices" class="rumahsakit.services.impl.BiayaServicesImpl"/>
+    
+    <bean id="userDao" class="rumahsakit.dao.impl.UserDaoImpl"/>
+    <bean id="userServices" class="rumahsakit.services.impl.UserServicesImpl"/>
+    
+    <bean id="rawatInapDao" class="rumahsakit.dao.impl.RawatInapDaoImpl"/>
+    <bean id="rawatInapServices" class="rumahsakit.services.impl.RawatInapServicesImpl"/>
+    
+    <bean id="nomorRuanganDao" class="rumahsakit.dao.impl.NomorRuanganDaoImpl"/>
+    <bean id="nomorRuanganServices" class="rumahsakit.services.impl.NomorRuanganServicesImpl"/>
+    
+    <bean id="obatMasukDao" class="rumahsakit.dao.impl.ObatMasukDaoImpl"/>
+    <bean id="obatMasukServices" class="rumahsakit.services.impl.ObatMasukServicesImpl"/>
+    
+</beans>

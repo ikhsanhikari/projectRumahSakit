@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="rumahsakit.model.RawatInapModel" table="rawat_inap">
+        <id name="id_rawat_inap" column="id_rawat_inap">
+            <generator class="native"/>
+        </id>
+        <property name="id_pasien" column="id_pasien"/>
+        <property name="tgl_masuk" column="tgl_masuk"/>
+        <property name="tgl_keluar" column="tgl_keluar"/>
+        <property name="id_nomor_ruangan" column="id_nomor_ruangan"/>
+        <property name="catatan_medis_rawat_inap" column="catatan_medis_rawat_inap"/> 
+    </class>
+  
+
+</hibernate-mapping>

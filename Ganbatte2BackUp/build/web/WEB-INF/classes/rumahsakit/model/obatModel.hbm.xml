@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="rumahsakit.model.ObatModel" table="obat">
+        <id name="id_obat" column="id_obat">
+            <generator class="native"/>
+        </id>
+        <property name="kode_obat" column="kode_obat"/>
+        <property name="nama_obat" column="nama_obat"/>
+        <property name="harga_obat" column="harga_obat"/>
+        <property name="stok_obat" column="stok_obat"/>
+    </class>
+  
+
+</hibernate-mapping>
